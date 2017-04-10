@@ -78,15 +78,19 @@ class ViewController: UIViewController {
         switch gameState {
             case .start:
                 color = UIColor(red: 245/255, green: 245/255, blue: 220/255, alpha: 1)
+                //color = UIColor.green
             case .draw:
                 drawSound.play()
                 color = UIColor(red: 135/255, green: 206/255, blue: 250/255, alpha: 1)
+                //color = UIColor.magenta
             case .lose:
                 loseSound.play()
                 color = UIColor(red: 192/255, green: 192/255, blue: 192/255, alpha: 1)
+                //color = UIColor.gray
             case .win:
                 winSound.play()
                 color = UIColor(red: 255/255, green: 69/255, blue: 0/255, alpha: 1)
+                //color = UIColor.red
         }
         view.backgroundColor = color
     }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B578BEE1E9B75140038D815 /* IMG_3396.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 5B578BED1E9B75140038D815 /* IMG_3396.JPG */; };
 		5BCE7A211E9B2CEF00AD68AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCE7A201E9B2CEF00AD68AB /* AppDelegate.swift */; };
 		5BCE7A231E9B2CEF00AD68AB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCE7A221E9B2CEF00AD68AB /* ViewController.swift */; };
 		5BCE7A261E9B2CEF00AD68AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BCE7A241E9B2CEF00AD68AB /* Main.storyboard */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5B578BED1E9B75140038D815 /* IMG_3396.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = IMG_3396.JPG; path = ../../../../../../../../Downloads/IMG_3396.JPG; sourceTree = "<group>"; };
 		5BCE7A1D1E9B2CEF00AD68AB /* RPS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RPS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BCE7A201E9B2CEF00AD68AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5BCE7A221E9B2CEF00AD68AB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 		5BCE7A1F1E9B2CEF00AD68AB /* RPS */ = {
 			isa = PBXGroup;
 			children = (
+				5B578BED1E9B75140038D815 /* IMG_3396.JPG */,
 				5BCE7A3E1E9B507800AD68AB /* draw.m4a */,
 				5BCE7A3F1E9B507800AD68AB /* lose.m4a */,
 				5BCE7A401E9B507800AD68AB /* win.m4a */,
@@ -142,6 +145,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B578BEE1E9B75140038D815 /* IMG_3396.JPG in Resources */,
 				5BCE7A2B1E9B2CEF00AD68AB /* LaunchScreen.storyboard in Resources */,
 				5BCE7A281E9B2CEF00AD68AB /* Assets.xcassets in Resources */,
 				5BCE7A411E9B507800AD68AB /* draw.m4a in Resources */,
@@ -326,6 +330,7 @@
 				5BCE7A311E9B2CEF00AD68AB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
