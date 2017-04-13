@@ -1,0 +1,148 @@
+PART 1: BUILD A BASIC UI
+
+A. Build a Basic UI => Xây dựng một giao diện đơn giản (Basic UI)
+
+Bài học này giúp bạn quen hơn với Xcode, cái tool bạn dùng để viết các app. Bạn sẽ trở nên quen với cấu trúc của một project trong Xcode và học làm thế nào (how to) để chuyển đổi/điều hướng (navigate) và sử dụng các thành phần của project. Trong bài học này, bạn sẽ bắt đầu tạo một giao diện người dùng đơn giản cho ứng dụng FoodTracker app và hiển thị nó lên máy giả lập (simulator). Giao diện sẽ như sau. 
+
+<IMAGE...>
+
+1. Mục tiêu bài học (Learning Objectives)
+
+Cuối bài học bạn này, bạn sẽ có thể:
+- Tạo một project trong Xcode
+- Biết được mục đích của các file chính (key files) đã được tạo sẵn trong một mẫu của Xcode Project (template)
+- Mở và chuyển giữa các file trong một project
+- Chạy app trên iOS Simulator
+- Add, Move and resize UI elements trong một storyboard
+- Thay đổi các Attributes của UI Elements trong một storyboard sử dụng cái Attributes Inspector
+- View và sắp xếp lại các UI Element sử dụng Outline View
+- Preview một Storyboard UI sử dụng Assistant Editor's Preview Mode
+- Sử dụng Auto Layout để hiển thị một UI cái sẽ tự động tương thích với kích thước thiết bị của người dùng.
+
+C. Create a New Project
+Xcode có một vài mẫu app sẵn (built-in app template) cho việc phát trển các kiểu ứng dụng phổ biến, như là games, ứng dụng với tab-based navigation, và table view-base apps. Tất cả các template này có sẵn interface và source code files. Trong bài học này, bạn sẽ bắt đầu với mẫu đơn giản nhất: Single View Application
+
+- Tạo mới một project:
+...
+
+
+D. Get Familiar With Xcode 
+...
+
+E. Review the Source Code
+...
+1. The App Delegate Source File
+2. The View Controller Source File
+
+F. Open Your Storyboard
+...
+
+G. Build The Basic UI
+...
+
+H. Preview Your Interface
+...
+
+I. Adopt Auto Layout
+...
+
+J. Debugging Auto Layout
+...
+
+K. Wrapping Up
+...
+
+
+======================================================================
+PART 2: CONNECT THE UI TO CODE
+
+A. Connect The UI to Code
+
+1. Learning Objectives
+Cuối bài học bạn có thể:
+- Giải thích mối quan hệ giữa một scene trong một storyboard và view controller bên dưới.
+- Tạo kết nối outlet và action giữa UI elements trong một storyboard và source code.
+- Xử lý User Input từ một text field và hiển thị kết quả lên UI.
+- Tạo một lớp phù hợp với một giao thức (protocol)
+- Hiểu delegation pattern
+- Tuân theo target-action pattern khi thiết kế kiến trúc app: app architecture
+
+B. Connect the UI to Source Code
+
+C. Create Outlets for UI Elements
+The weak keyword indicates that the reference does not prevent the system from deallocating the referenced object. Weak references help prevent reference cycles; however, to keep the object alive and in memory you need to make sure some other part of your app has a strong reference to the object
+
+D. Define an Action to Perform
+- target-action pattern: 
+event/action/target/sender
+
+E. Process User Input
+
+================================================
+PART 3: Working With View Controllers
+
+Learning Objectives
+Cuối bài học bạn có thể
+- Hiểu vòng đời view controller và các callbacks của nó (viewDidLoad, viewWillAppear and viewDidAppear)
+- Chuyển dữ liệu giữa các view controllers
+- Dismiss a view controller
+- sử dụng Gesture Recognizers để sinh ra các events
+- Đoán trước hành động của object (object behavior) dựa trên kiến trúc UIView/UIControl
+- Dùng asset catalog để add image asset vào một project
+
+A. Understand the ViewView Controller Lifecycle
+
+B. Add a Meal Photo
+
+C. Display a Default Photo
+
+D. Connect the Image View to Code
+
+E. Create a Gesture Recognizer
+
+F. Connect the Gesture Recognizer to Code
+
+G. Create an Image Picker to Respond to User Taps
+
+=========================================
+Part 4: Implement a Custom Control
+
+Learning Objectives
+Cuối bài học bạn có thể:
+- Tạo và liên kết custom source code files với các elements trong 1 storyboard
+- Định nghĩa một custom class
+- Cài đặt một initializer trên một custom class
+- Dùng UIStackView như một container
+- Hiểu làm thế nào tạo view programmatically
+- Thêm accessibility information vào một custom control
+- Làm việc với @IBInspectable and @IBDesignable to display and control a custom view trong Interface Builder
+
+A. Create a Custom View
+
+B. Display the Custom View
+
+C. Add Buttons to the View
+
+D. Add Support for Interface Builder
+
+E. Add Star Images to the Buttons
+
+F. Add Accessibility Information
+
+G. Connect the Rating Control to the View Controller
+
+====================================
+Part 5: Define Your Data Model
+
+Learning Objectives
+Cuối bài học bạn có thể:
+- Tạo một data model
+- viết failable initializers cho một custom class
+- minh hoạ hiểu biết về mặt lý thuyết về sự khác nhau giữa failable và nonfailable initializers
+- Test một data model bằng việc viết và chạy unit test
+
+
+
+
+
+

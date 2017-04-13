@@ -1,0 +1,27 @@
+Getting Started => Phần mở đầu
+
+A. Jump Right In => Nhảy ngay vào
+... (not yet translated)
+
+B. Prerequisites
+... (not yet translate)
+translate
+
+C. About the Lessons
+... (not yet translate)
+
+D. Get the Tools => Các công cụ (Tools)
+Để phát triển các app sử dụng công nghệ mới nhất mô tả trong các bài học này, bạn cần một máy Mac (macOS 10.11.5 hoặc mới hơn) chạy phiên bản Xcode mới nhất. Xcode bao có tất cả các chức năng bạn cần để design, develop, và debug một app. Xcode cũng bao gồm iOS SDK, nó là mở rộng của Xcode để có thểm tools, compilers và các frameworks bân cần cho phát triển iOSiOS
+
+Download phiên bản Xcode mới nhất cho máy Mac của bạn hoàn toàn free từ App Store.
+
+Để download bản mới nhất của Xcode
+1. Mở App Store trên Mac
+2. Trong ô Search (góc trên cùng bên phải), gõ Xcode và nhấn phím Return. Ứng dụng Xcode sẽ hiện ra ở kết quả search đầu tiên.
+3. Click vào nút Get và sau đó Install App.
+4. Nhập Apple ID và password của bạn vào khi được hỏi. Xcode được download vào thư mục /Applications
+
+Important: (Quan Trọng)
+Các bài học này được viết với Xcode 8.1, iOS SDK 10, và Swift 3. Bạn hãy sử dụng những phiên bản này khi làm việc với các bài giới thiệu này. Nếu bạn đang sử dụng các phiên bản khác, màn hình của bạn có thể khác so với các màn hình chụp của chúng tôi. Bạn cũng có thể cần một số thay đổi trong các đoạn mã để có thể biên dịch được (compile)
+
+=> Let's get started! BẮT ĐẦU THÔI!
