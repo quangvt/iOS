@@ -1,0 +1,11 @@
+Part 1: Create a Table View
+
+Learning Objectives
+Cuối bài học này bạn có thể:
+- Tạo storyboard scene thứ 2
+- Hiểu các key components của một table view
+- tạo và design một custom table view cell
+- Hiểu các vai trò của table view delegates và data sources
+- Sử dụng một mảng để lưu trữ và làm việc với data
+- Hiển thị dynamic data trong một table view
+
