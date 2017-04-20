@@ -86,6 +86,4 @@ class Meal : NSObject, NSCoding {
         // Must call designated initializer
         self.init(name: name, photo: photo, rating: rating)
     }
-    
-    
 }
