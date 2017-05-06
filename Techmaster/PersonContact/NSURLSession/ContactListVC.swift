@@ -26,7 +26,6 @@ class ContactListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         navigationItem.rightBarButtonItem = addBarButton()
         
         getInformationRequest()
-    
     }
     
     // MARK: TableView configuration
