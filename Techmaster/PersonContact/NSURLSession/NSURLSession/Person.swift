@@ -1,15 +1,17 @@
 //
-//  Person.swift
+//  AppDelegate.swift
 //  NSURLSession
 //
-//  Created by Quang Vu on 5/4/17.
-//  Copyright © 2017 Vinh The. All rights reserved.
+//  Created by Quang Vu on 01/May/2017.
+//  Copyright © 2017 Quang Vu. All rights reserved.
 //
+
 
 import UIKit
 
 class Person: NSObject {
-    var id : String? // ? optional
+//    var id : String? // ? optional
+    var id : Int
     var name : String?
     var phone : Int?
     var email: String?
@@ -17,7 +19,10 @@ class Person: NSObject {
     
     init(information : [String : AnyObject?])
     {
-        let id = information["id"] as? String
+//        let id = information["id"] as? String
+//        self.id = id
+        // Auto Increment
+        let id = information["id"] as! Int
         self.id = id
         let name = information["name"] as? String
         self.name = name

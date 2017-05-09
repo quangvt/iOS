@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  NSURLSession
 //
-//  Created by Vinh The on 7/26/16.
-//  Copyright © 2016 Vinh The. All rights reserved.
+//  Created by Quang Vu on 01/May/2017.
+//  Copyright © 2017 Quang Vu. All rights reserved.
 //
 
 import UIKit

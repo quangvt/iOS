@@ -1,20 +1,25 @@
 //
-//  ContactListVC.swift
+//  AppDelegate.swift
 //  NSURLSession
 //
-//  Created by Vinh The on 7/26/16.
-//  Copyright © 2016 Vinh The. All rights reserved.
+//  Created by Quang Vu on 01/May/2017.
+//  Copyright © 2017 Quang Vu. All rights reserved.
 //
 
 import UIKit
 
-let baseURL : String! = "http://localhost:2403/information/"
+//let baseURL : String! = "http://localhost:2403/information/" // DeployD & MongoDB
+let baseURL : String! = "http://localhost:3000/api/person/" // NodeJS & PostgreSQL
 
 class ContactListVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
+    
+    // MARK: Properties
     
     @IBOutlet weak var myTableView: UITableView!
     
     var informations = [Person]()
+    
+    // MARK: Default Load
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,9 +27,11 @@ class ContactListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         myTableView.delegate = self
         myTableView.dataSource = self
         
+        // Navigator
         navigationItem.title = "Contact List"
         navigationItem.rightBarButtonItem = addBarButton()
         
+        // Get List
         getInformationRequest()
     }
     
@@ -58,7 +65,7 @@ class ContactListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        // Swift left
+        // Swift left to display Edit & Delete action
     }
     
     // Tra ve mot mang bao gom mang cacs doi tuong action
@@ -66,65 +73,25 @@ class ContactListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         let delete = UITableViewRowAction(style: .default, title: "DELETE") {
             (rowAction, indexPath) in
             self.deleteRequest(indexPath: indexPath)
-            
         }
+        // Change color of delete action to the different color with edit action
         delete.backgroundColor = UIColor(red: 244/255, green: 117/255, blue: 100/255, alpha: 1.0)
         
         let edit = UITableViewRowAction(style: .normal, title: "EDIT") {
             (rowAction, indexPath) in
+            // TODO: Pending Edit Function
             print("edit")
+            let person = self.informations[indexPath.row]
+            self.updateContact(person)
         }
         
         return [delete, edit]
     }
     
-    func deleteRequest(indexPath: IndexPath) {
-        let id = informations[indexPath.row].id
-        let urlRequest = NSMutableURLRequest(url: URL(string: baseURL + id!)!)
-        
-        urlRequest.httpMethod = "DELETE"
-        let sessionConfigure = URLSessionConfiguration.default
-        let session = URLSession(configuration: sessionConfigure)
-        
-        let task = session.dataTask(with: urlRequest as URLRequest, completionHandler: {(data, response, error) in
-            if let error = error {
-                print(error.localizedDescription)
-            } else {
-                if let httpResponse = response as? HTTPURLResponse {
-                    if httpResponse.statusCode == 200 {
-                        self.informations.remove(at: indexPath.row)
-                        
-                        DispatchQueue.main.async(execute: {
-                            self.myTableView.deleteRows(at: [indexPath], with: .automatic)
-                        })
-                    } else {
-                        print(httpResponse.statusCode)
-                    }
-                }
-            }
-        })
-        task.resume()
-    }
+    // MARK: Get All, Edit, Delete, Add New
     
-    // MARK: Get Data Request
+    // Get List
     func getInformationRequest() {
-        
-//        guard let url = URL(string: baseURL) else {
-//            print("Error: cannot create URL")
-//            return
-//        }
-//        
-//        let urlRequest = URLRequest(url: url)
-//        
-//        // setup the session
-//        let session = URLSession.shared
-//        
-//        // make the request
-//
-//        let task = session.dataTask(with: urlRequest, completionHandler: {(data, response, error) in
-//        
-//        })
-//        task.resume()
         
         let urlRequest = URLRequest(url: URL(string: baseURL)!)
       
@@ -171,9 +138,36 @@ class ContactListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
             }
         })
         task.resume() // bat dau qua trinh thuc hien task vu
-        
     }
     
+    // Delete
+    private func deleteRequest(indexPath: IndexPath) {
+        let id = "\(informations[indexPath.row].id)"
+        let urlRequest = NSMutableURLRequest(url: URL(string: baseURL + id)!)
+        
+        urlRequest.httpMethod = "DELETE"
+        let sessionConfigure = URLSessionConfiguration.default
+        let session = URLSession(configuration: sessionConfigure)
+        
+        let task = session.dataTask(with: urlRequest as URLRequest, completionHandler: {(data, response, error) in
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                if let httpResponse = response as? HTTPURLResponse {
+                    if httpResponse.statusCode == 200 {
+                        self.informations.remove(at: indexPath.row)
+                        
+                        DispatchQueue.main.async(execute: {
+                            self.myTableView.deleteRows(at: [indexPath], with: .automatic)
+                        })
+                    } else {
+                        print(httpResponse.statusCode)
+                    }
+                }
+            }
+        })
+        task.resume()
+    }
     
     //MARK: Create BarButton
     
@@ -190,10 +184,19 @@ class ContactListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         addNewContact.delegate = self
         
         displayContentController(addNewContact)
-        
     }
     
-// MARK: Create Popup
+    func updateContact(_ sender: Person) {
+        let addNewContact = storyboard?.instantiateViewController(withIdentifier: "AddNewContactVC") as! AddNewContactVC
+        
+        addNewContact.delegate = self
+        
+        addNewContact.person = sender
+
+        displayContentController(addNewContact)
+    }
+    
+    // MARK: Create Popup
     
     var blurView : UIView?
     var popUpVC : AddNewContactVC?
@@ -229,10 +232,7 @@ class ContactListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
             content.didMove(toParentViewController: self)
             
             }, completion: nil)
-        
     }
-    
-    
     
     func animateDismissAddNewContactView(_ addNewVC : AddNewContactVC) {
         let bounds = addNewVC.view.bounds
@@ -249,13 +249,13 @@ class ContactListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
             self.navigationItem.rightBarButtonItem?.isEnabled = true
             self.blurView?.removeFromSuperview()
         }
-        
     }
     
     func tapDismissGesture(_ tapGesture : UITapGestureRecognizer) {
         animateDismissAddNewContactView(popUpVC!)
     }
 }
+
 
 extension ContactListVC : AddNewContactDelegate {
     func dismissAddnewContactController(addNewVC: AddNewContactVC) {

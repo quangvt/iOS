@@ -1,10 +1,11 @@
 //
-//  AddNewContactVC.swift
+//  AppDelegate.swift
 //  NSURLSession
 //
-//  Created by Vinh The on 7/27/16.
-//  Copyright © 2016 Vinh The. All rights reserved.
+//  Created by Quang Vu on 01/May/2017.
+//  Copyright © 2017 Quang Vu. All rights reserved.
 //
+
 
 import UIKit
 
@@ -30,6 +31,10 @@ class AddNewContactVC: UIViewController{
     
     @IBOutlet weak var addButton: UIButton!
     
+    var person : Person?
+    var id : Int = 0
+    var mode : String = "add"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,6 +42,17 @@ class AddNewContactVC: UIViewController{
         phoneTextField.delegate = self
         cityTextField.delegate = self
         emailTextField.delegate = self
+        
+        if ((person) != nil) {
+            self.id = (person?.id)!
+            self.mode = "update"
+            self.navLabel.text = "Update"
+            self.addButton.setTitle("Update", for: UIControlState.normal)
+            self.nameTextField.text = person?.name
+            self.phoneTextField.text = "\(person?.phone ?? 0)"
+            self.cityTextField.text = person?.city
+            self.emailTextField.text = person?.email
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -94,6 +110,47 @@ class AddNewContactVC: UIViewController{
         task.resume()
     }
     
+    func updateContactRequest(name: String, phone: Int, city: String?, email: String?) {
+        
+        var param : [String: AnyObject] = ["id" : id as AnyObject, "name" : name as AnyObject, "phone" : phone as AnyObject]
+        if city != nil {
+            param["city"] = city as AnyObject
+        }
+        if email != nil {
+            param["email"] = email as AnyObject
+        }
+        // Mutable => allow to edit
+        let urlRequest = NSMutableURLRequest(url: URL(string: baseURL + "\(id)")!)
+        
+        urlRequest.httpMethod = "PUT"
+        
+        let configurationSession = URLSessionConfiguration.default
+        configurationSession.httpAdditionalHeaders = ["Content-Type": "application/json"]
+        
+        let createContactSession = URLSession(configuration: configurationSession)
+        
+        let dataPassing = try! JSONSerialization.data(withJSONObject: param, options: JSONSerialization.WritingOptions.prettyPrinted )
+        
+        let task = createContactSession.uploadTask(with: urlRequest as URLRequest, from: dataPassing, completionHandler: {(data, response, error) in
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                if let responseHTTP = response as? HTTPURLResponse{
+                    if responseHTTP.statusCode == 200 {
+                        print(data)
+                        DispatchQueue.main.async(execute: {
+                            self.delegate?.dismissAddnewContactController(addNewVC: self)
+                        })
+                    } else {
+                        print(responseHTTP.statusCode)
+                    }
+                }
+            }
+        })
+        
+        task.resume()
+    }
+    
     // MARK: Create corner roundrect.
     
     func setMask(_ view : UIView, rectCorner : UIRectCorner, radius : CGSize){
@@ -109,11 +166,20 @@ class AddNewContactVC: UIViewController{
     }
     
     @IBAction func addNewContactAction(_ sender: AnyObject) {
-        if let name = nameTextField.text, let phone = Int(phoneTextField.text!){
-            createNewContactRequest(name: name, phone: phone, city: cityTextField.text, email: emailTextField.text)
-        } else {
-            print("no name no phone")
+        if (mode == "add"){
+            if let name = nameTextField.text, let phone = Int(phoneTextField.text!){
+                createNewContactRequest(name: name, phone: phone, city: cityTextField.text, email: emailTextField.text)
+            } else {
+                print("no name no phone")
+            }
+        } else if (mode == "update") {
+            if let name = nameTextField.text, let phone = Int(phoneTextField.text!){
+                updateContactRequest(name: name, phone: phone, city: cityTextField.text, email: emailTextField.text)
+            } else {
+                print("no name no phone")
+            }
         }
+        
     }
 }
 
