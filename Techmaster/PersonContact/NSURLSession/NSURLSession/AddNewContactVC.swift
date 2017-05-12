@@ -13,7 +13,7 @@ protocol AddNewContactDelegate {
     func dismissAddnewContactController(addNewVC: AddNewContactVC)
 }
 
-class AddNewContactVC: UIViewController{
+class AddNewContactVC: UIViewController {
     
     @IBOutlet weak var bannerView: UIView!
     
@@ -191,5 +191,11 @@ extension AddNewContactVC : UITextFieldDelegate{
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         textField.setValue(UIColor.black, forKeyPath: "_placeholderLabel.textColor")
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // Hide the keyboard.
+        textField.resignFirstResponder()
+        return true
     }
 }

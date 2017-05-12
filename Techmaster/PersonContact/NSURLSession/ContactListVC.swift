@@ -9,7 +9,9 @@
 import UIKit
 
 //let baseURL : String! = "http://localhost:2403/information/" // DeployD & MongoDB
-let baseURL : String! = "http://localhost:3000/api/person/" // NodeJS & PostgreSQL
+//let baseURL : String! = "http://localhost:3000/api/person/" // NodeJS & PostgreSQL & MySQL
+//let baseURL : String! = "http://192.168.1.105:3000/api/person/" // NodeJS & PostgreSQL & MySQL
+let baseURL : String! = "http://192.168.100.5:3000/api/person/" // NodeJS & PostgreSQL & MySQL
 
 class ContactListVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
