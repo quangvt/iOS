@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -26,7 +27,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="wpt-tF-Yos">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="wpt-tF-Yos">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wpt-tF-Yos" id="tcb-Ai-3hX">
@@ -43,7 +44,7 @@
                                     <constraint firstAttribute="height" constant="92" id="NLP-t3-Lt6"/>
                                 </constraints>
                                 <connections>
-                                    <segue destination="99B-u6-MeE" kind="embed" id="kpe-qb-pgt"/>
+                                    <segue destination="st8-iY-h3a" kind="embed" id="hdX-yX-ihn"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -82,24 +83,10 @@
             </objects>
             <point key="canvasLocation" x="-945" y="-268"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="zRZ-IA-aVf">
-            <objects>
-                <viewController id="99B-u6-MeE" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="r21-xC-QOr">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="92"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="a3D-cb-M2b" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="847" y="-175"/>
-        </scene>
         <!--Online-->
         <scene sceneID="Iei-Qv-zhA">
             <objects>
-                <viewController id="g6a-6q-IOq" sceneMemberID="viewController">
+                <viewController id="g6a-6q-IOq" customClass="TableViewOnline" customModule="mp3zing" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6MV-iH-Yut"/>
                         <viewControllerLayoutGuide type="bottom" id="QPE-JU-55X"/>
@@ -113,7 +100,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="J0u-f6-KJa">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="J0u-f6-KJa">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="J0u-f6-KJa" id="QvH-JZ-uP9">
@@ -130,7 +117,7 @@
                                     <constraint firstAttribute="height" constant="92" id="7OO-3z-9ap"/>
                                 </constraints>
                                 <connections>
-                                    <segue destination="99B-u6-MeE" kind="embed" id="chc-bw-JGJ"/>
+                                    <segue destination="st8-iY-h3a" kind="embed" id="vjQ-Lb-vH4"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -146,17 +133,98 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Online" image="iconOnline" id="AO3-Qu-vwT"/>
+                    <connections>
+                        <outlet property="myTableView" destination="GJb-67-Xg8" id="c9o-ma-XVn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vAe-bb-OkN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6" y="198"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="93c-UX-8FH">
+            <objects>
+                <viewController id="st8-iY-h3a" customClass="ViewController" customModule="mp3zing" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="LiY-ph-Ptp"/>
+                        <viewControllerLayoutGuide type="bottom" id="Iet-DA-3Hg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FyF-Xc-0yO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="116"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" minimumValueImage="miniVolume.png" maximumValueImage="maxVolume.png" translatesAutoresizingMaskIntoConstraints="NO" id="gzJ-4P-906">
+                                <rect key="frame" x="14" y="78" width="347" height="31"/>
+                            </slider>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fsM-dk-Ips">
+                                <rect key="frame" x="172" y="45" width="30" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="DBk-hA-Aew"/>
+                                    <constraint firstAttribute="height" constant="25" id="Ngc-Lv-4ia"/>
+                                </constraints>
+                                <state key="normal" image="play.png"/>
+                            </button>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="45K-R4-b7g">
+                                <rect key="frame" x="72" y="5" width="231" height="31"/>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="paq-mx-jaa">
+                                <rect key="frame" x="309" y="8" width="50" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="p77-X8-A2t"/>
+                                    <constraint firstAttribute="height" constant="24" id="qeZ-Br-amz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="33a-W8-yZ6">
+                                <rect key="frame" x="310" y="41.5" width="51" height="31"/>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MNm-bD-rDD">
+                                <rect key="frame" x="16" y="8" width="50" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="Sig-X0-au9"/>
+                                    <constraint firstAttribute="width" constant="50" id="TkC-PW-6Wt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="gzJ-4P-906" firstAttribute="leading" secondItem="FyF-Xc-0yO" secondAttribute="leadingMargin" id="29h-cb-6fu"/>
+                            <constraint firstItem="gzJ-4P-906" firstAttribute="top" secondItem="MNm-bD-rDD" secondAttribute="bottom" constant="46" id="CYT-g5-pS0"/>
+                            <constraint firstItem="paq-mx-jaa" firstAttribute="leading" secondItem="45K-R4-b7g" secondAttribute="trailing" constant="8" id="DrJ-g0-9i4"/>
+                            <constraint firstItem="fsM-dk-Ips" firstAttribute="centerX" secondItem="FyF-Xc-0yO" secondAttribute="centerX" id="Dw0-vq-AWC"/>
+                            <constraint firstItem="gzJ-4P-906" firstAttribute="top" secondItem="fsM-dk-Ips" secondAttribute="bottom" constant="8" id="FpK-eE-7xl"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="33a-W8-yZ6" secondAttribute="trailing" id="GMO-aB-IeS"/>
+                            <constraint firstItem="gzJ-4P-906" firstAttribute="centerX" secondItem="FyF-Xc-0yO" secondAttribute="centerX" id="QQX-EW-cYk"/>
+                            <constraint firstItem="MNm-bD-rDD" firstAttribute="leading" secondItem="FyF-Xc-0yO" secondAttribute="leadingMargin" id="aHV-hs-J1q"/>
+                            <constraint firstItem="fsM-dk-Ips" firstAttribute="centerY" secondItem="33a-W8-yZ6" secondAttribute="centerY" id="gwO-cW-GKF"/>
+                            <constraint firstItem="MNm-bD-rDD" firstAttribute="centerY" secondItem="45K-R4-b7g" secondAttribute="centerY" id="iFU-5Y-DBU"/>
+                            <constraint firstItem="gzJ-4P-906" firstAttribute="top" secondItem="paq-mx-jaa" secondAttribute="bottom" constant="46" id="oBZ-V8-Tz3"/>
+                            <constraint firstItem="45K-R4-b7g" firstAttribute="leading" secondItem="MNm-bD-rDD" secondAttribute="trailing" constant="8" id="wlF-FR-MOQ"/>
+                            <constraint firstItem="Iet-DA-3Hg" firstAttribute="top" secondItem="gzJ-4P-906" secondAttribute="bottom" constant="8" id="y7h-vF-P2f"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="paq-mx-jaa" secondAttribute="trailing" id="yka-FG-uGR"/>
+                        </constraints>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="116"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tb4-8K-SnC" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="785" y="-185"/>
+        </scene>
     </scenes>
     <resources>
         <image name="iconDownload" width="20" height="19"/>
         <image name="iconOnline" width="20" height="19"/>
+        <image name="maxVolume.png" width="30" height="30"/>
+        <image name="miniVolume.png" width="16" height="16"/>
+        <image name="play.png" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="chc-bw-JGJ"/>
+        <segue reference="vjQ-Lb-vH4"/>
     </inferredMetricsTieBreakers>
 </document>
