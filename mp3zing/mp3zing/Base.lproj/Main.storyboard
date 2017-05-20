@@ -13,7 +13,7 @@
         <!--MyMusic-->
         <scene sceneID="pD1-DC-lsX">
             <objects>
-                <viewController id="EHH-0X-iMd" sceneMemberID="viewController">
+                <viewController id="EHH-0X-iMd" customClass="TableViewLocal" customModule="mp3zing" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jMg-2h-0Mb"/>
                         <viewControllerLayoutGuide type="bottom" id="RrK-nJ-CSV"/>
@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xcm-t7-4iI">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="526"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="488"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
@@ -39,9 +39,9 @@
                                 </prototypes>
                             </tableView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e5l-7b-kd7">
-                                <rect key="frame" x="0.0" y="526" width="375" height="92"/>
+                                <rect key="frame" x="0.0" y="488" width="375" height="130"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="92" id="NLP-t3-Lt6"/>
+                                    <constraint firstAttribute="height" constant="130" id="NLP-t3-Lt6"/>
                                 </constraints>
                                 <connections>
                                     <segue destination="st8-iY-h3a" kind="embed" id="hdX-yX-ihn"/>
@@ -53,17 +53,20 @@
                             <constraint firstItem="RrK-nJ-CSV" firstAttribute="top" secondItem="e5l-7b-kd7" secondAttribute="bottom" id="4h7-XO-KoV"/>
                             <constraint firstAttribute="trailing" secondItem="xcm-t7-4iI" secondAttribute="trailing" id="Bfg-R7-HoL"/>
                             <constraint firstItem="e5l-7b-kd7" firstAttribute="leading" secondItem="pyY-yw-Ji5" secondAttribute="leading" id="Ddc-yj-gbw"/>
-                            <constraint firstItem="e5l-7b-kd7" firstAttribute="top" secondItem="xcm-t7-4iI" secondAttribute="bottom" id="NWA-Fk-Gu2"/>
                             <constraint firstItem="xcm-t7-4iI" firstAttribute="top" secondItem="pyY-yw-Ji5" secondAttribute="top" id="T1t-PI-gKp"/>
                             <constraint firstItem="xcm-t7-4iI" firstAttribute="leading" secondItem="pyY-yw-Ji5" secondAttribute="leading" id="Xby-vE-tQd"/>
+                            <constraint firstItem="e5l-7b-kd7" firstAttribute="top" secondItem="xcm-t7-4iI" secondAttribute="bottom" id="aYN-0i-fVT"/>
                             <constraint firstAttribute="trailing" secondItem="e5l-7b-kd7" secondAttribute="trailing" id="dbe-WP-Tau"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="MyMusic" image="iconDownload" id="JvK-cL-aab"/>
+                    <connections>
+                        <outlet property="myTableView" destination="xcm-t7-4iI" id="6Tx-Mv-08y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u0a-oS-cCO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6" y="-499"/>
+            <point key="canvasLocation" x="5.5999999999999996" y="-499.70014992503752"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="UDF-XN-hvH">
@@ -96,7 +99,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GJb-67-Xg8">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="526"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="488"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
@@ -112,9 +115,9 @@
                                 </prototypes>
                             </tableView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tee-VD-1kz">
-                                <rect key="frame" x="0.0" y="526" width="375" height="92"/>
+                                <rect key="frame" x="0.0" y="488" width="375" height="130"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="92" id="7OO-3z-9ap"/>
+                                    <constraint firstAttribute="height" constant="130" id="7OO-3z-9ap"/>
                                 </constraints>
                                 <connections>
                                     <segue destination="st8-iY-h3a" kind="embed" id="vjQ-Lb-vH4"/>
@@ -128,8 +131,8 @@
                             <constraint firstItem="GJb-67-Xg8" firstAttribute="top" secondItem="zJo-Yi-sZj" secondAttribute="top" id="5un-fz-a7x"/>
                             <constraint firstAttribute="trailing" secondItem="tee-VD-1kz" secondAttribute="trailing" id="CJ1-KS-h7H"/>
                             <constraint firstAttribute="trailing" secondItem="GJb-67-Xg8" secondAttribute="trailing" id="F9o-QL-qUL"/>
-                            <constraint firstItem="tee-VD-1kz" firstAttribute="top" secondItem="GJb-67-Xg8" secondAttribute="bottom" id="HE0-ZG-Fmz"/>
                             <constraint firstItem="GJb-67-Xg8" firstAttribute="leading" secondItem="zJo-Yi-sZj" secondAttribute="leading" id="PAG-6j-lnR"/>
+                            <constraint firstItem="tee-VD-1kz" firstAttribute="top" secondItem="GJb-67-Xg8" secondAttribute="bottom" id="jha-XV-Lx8"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Online" image="iconOnline" id="AO3-Qu-vwT"/>
@@ -139,36 +142,34 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vAe-bb-OkN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6" y="198"/>
+            <point key="canvasLocation" x="5.5999999999999996" y="197.45127436281859"/>
         </scene>
-        <!--View Controller-->
+        <!--Audio Player View-->
         <scene sceneID="93c-UX-8FH">
             <objects>
-                <viewController id="st8-iY-h3a" customClass="ViewController" customModule="mp3zing" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="st8-iY-h3a" customClass="AudioPlayerView" customModule="mp3zing" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="LiY-ph-Ptp"/>
                         <viewControllerLayoutGuide type="bottom" id="Iet-DA-3Hg"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="FyF-Xc-0yO">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="116"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="130"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" minimumValueImage="miniVolume.png" maximumValueImage="maxVolume.png" translatesAutoresizingMaskIntoConstraints="NO" id="gzJ-4P-906">
-                                <rect key="frame" x="14" y="78" width="347" height="31"/>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" minimumValueImage="minVolume.png" maximumValueImage="maxVolume.png" translatesAutoresizingMaskIntoConstraints="NO" id="gzJ-4P-906">
+                                <rect key="frame" x="14" y="97" width="347" height="31"/>
+                                <connections>
+                                    <action selector="action_SldVolumeWithSender:" destination="st8-iY-h3a" eventType="valueChanged" id="KDd-fg-YRj"/>
+                                </connections>
                             </slider>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fsM-dk-Ips">
-                                <rect key="frame" x="172" y="45" width="30" height="25"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="DBk-hA-Aew"/>
-                                    <constraint firstAttribute="height" constant="25" id="Ngc-Lv-4ia"/>
-                                </constraints>
-                                <state key="normal" image="play.png"/>
-                            </button>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="45K-R4-b7g">
-                                <rect key="frame" x="72" y="5" width="231" height="31"/>
+                                <rect key="frame" x="72" y="30" width="231" height="31"/>
+                                <connections>
+                                    <action selector="action_SldDurationWithSender:" destination="st8-iY-h3a" eventType="valueChanged" id="Ake-U2-CoI"/>
+                                </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="paq-mx-jaa">
-                                <rect key="frame" x="309" y="8" width="50" height="24"/>
+                                <rect key="frame" x="309" y="33" width="50" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="p77-X8-A2t"/>
                                     <constraint firstAttribute="height" constant="24" id="qeZ-Br-amz"/>
@@ -178,10 +179,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="33a-W8-yZ6">
-                                <rect key="frame" x="310" y="41.5" width="51" height="31"/>
+                                <rect key="frame" x="310" y="63.5" width="51" height="31"/>
+                                <connections>
+                                    <action selector="action_RepeatSongWithSender:" destination="st8-iY-h3a" eventType="valueChanged" id="y1e-VE-QXw"/>
+                                </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MNm-bD-rDD">
-                                <rect key="frame" x="16" y="8" width="50" height="24"/>
+                                <rect key="frame" x="16" y="33" width="50" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="Sig-X0-au9"/>
                                     <constraint firstAttribute="width" constant="50" id="TkC-PW-6Wt"/>
@@ -190,38 +194,65 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fsM-dk-Ips">
+                                <rect key="frame" x="172" y="63" width="30" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="DBk-hA-Aew"/>
+                                    <constraint firstAttribute="height" constant="31" id="Ngc-Lv-4ia"/>
+                                </constraints>
+                                <state key="normal" image="play.png"/>
+                                <connections>
+                                    <action selector="action_PlayPauseWithSender:" destination="st8-iY-h3a" eventType="touchUpInside" id="tiM-7B-PO8"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Song Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g4s-s8-2W7">
+                                <rect key="frame" x="16" y="1" width="343" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="gzJ-4P-906" firstAttribute="leading" secondItem="FyF-Xc-0yO" secondAttribute="leadingMargin" id="29h-cb-6fu"/>
-                            <constraint firstItem="gzJ-4P-906" firstAttribute="top" secondItem="MNm-bD-rDD" secondAttribute="bottom" constant="46" id="CYT-g5-pS0"/>
+                            <constraint firstItem="gzJ-4P-906" firstAttribute="top" secondItem="MNm-bD-rDD" secondAttribute="bottom" constant="40" id="CYT-g5-pS0"/>
                             <constraint firstItem="paq-mx-jaa" firstAttribute="leading" secondItem="45K-R4-b7g" secondAttribute="trailing" constant="8" id="DrJ-g0-9i4"/>
                             <constraint firstItem="fsM-dk-Ips" firstAttribute="centerX" secondItem="FyF-Xc-0yO" secondAttribute="centerX" id="Dw0-vq-AWC"/>
-                            <constraint firstItem="gzJ-4P-906" firstAttribute="top" secondItem="fsM-dk-Ips" secondAttribute="bottom" constant="8" id="FpK-eE-7xl"/>
                             <constraint firstAttribute="trailingMargin" secondItem="33a-W8-yZ6" secondAttribute="trailing" id="GMO-aB-IeS"/>
+                            <constraint firstItem="gzJ-4P-906" firstAttribute="top" secondItem="fsM-dk-Ips" secondAttribute="bottom" constant="3" id="PMU-KH-Ma0"/>
                             <constraint firstItem="gzJ-4P-906" firstAttribute="centerX" secondItem="FyF-Xc-0yO" secondAttribute="centerX" id="QQX-EW-cYk"/>
+                            <constraint firstItem="33a-W8-yZ6" firstAttribute="baseline" secondItem="fsM-dk-Ips" secondAttribute="baseline" id="ZWG-Kd-0dQ"/>
                             <constraint firstItem="MNm-bD-rDD" firstAttribute="leading" secondItem="FyF-Xc-0yO" secondAttribute="leadingMargin" id="aHV-hs-J1q"/>
-                            <constraint firstItem="fsM-dk-Ips" firstAttribute="centerY" secondItem="33a-W8-yZ6" secondAttribute="centerY" id="gwO-cW-GKF"/>
                             <constraint firstItem="MNm-bD-rDD" firstAttribute="centerY" secondItem="45K-R4-b7g" secondAttribute="centerY" id="iFU-5Y-DBU"/>
-                            <constraint firstItem="gzJ-4P-906" firstAttribute="top" secondItem="paq-mx-jaa" secondAttribute="bottom" constant="46" id="oBZ-V8-Tz3"/>
+                            <constraint firstItem="gzJ-4P-906" firstAttribute="top" secondItem="paq-mx-jaa" secondAttribute="bottom" constant="40" id="oBZ-V8-Tz3"/>
                             <constraint firstItem="45K-R4-b7g" firstAttribute="leading" secondItem="MNm-bD-rDD" secondAttribute="trailing" constant="8" id="wlF-FR-MOQ"/>
-                            <constraint firstItem="Iet-DA-3Hg" firstAttribute="top" secondItem="gzJ-4P-906" secondAttribute="bottom" constant="8" id="y7h-vF-P2f"/>
+                            <constraint firstItem="Iet-DA-3Hg" firstAttribute="top" secondItem="gzJ-4P-906" secondAttribute="bottom" constant="3" id="y7h-vF-P2f"/>
                             <constraint firstAttribute="trailingMargin" secondItem="paq-mx-jaa" secondAttribute="trailing" id="yka-FG-uGR"/>
                         </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="375" height="116"/>
+                    <size key="freeformSize" width="375" height="130"/>
+                    <connections>
+                        <outlet property="btn_Play" destination="fsM-dk-Ips" id="Fhw-bx-yGQ"/>
+                        <outlet property="lbl_CurrentTime" destination="MNm-bD-rDD" id="nhe-Bd-tff"/>
+                        <outlet property="lbl_Title" destination="g4s-s8-2W7" id="odf-d8-3mG"/>
+                        <outlet property="lbl_TotalTime" destination="paq-mx-jaa" id="eNB-sL-YWO"/>
+                        <outlet property="sld_Duration" destination="45K-R4-b7g" id="07q-oA-tPY"/>
+                        <outlet property="sld_Volume" destination="gzJ-4P-906" id="awN-Jp-Nqo"/>
+                        <outlet property="swt_Repeat" destination="33a-W8-yZ6" id="Xbb-So-3I6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tb4-8K-SnC" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="785" y="-185"/>
+            <point key="canvasLocation" x="784.79999999999995" y="-185.30734632683661"/>
         </scene>
     </scenes>
     <resources>
         <image name="iconDownload" width="20" height="19"/>
         <image name="iconOnline" width="20" height="19"/>
         <image name="maxVolume.png" width="30" height="30"/>
-        <image name="miniVolume.png" width="16" height="16"/>
+        <image name="minVolume.png" width="30" height="30"/>
         <image name="play.png" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>

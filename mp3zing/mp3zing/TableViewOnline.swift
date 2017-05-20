@@ -8,6 +8,7 @@
 
 import UIKit
 
+// Change on each start app time
 let kDOCUMENT_DIRECTORY_PATH = NSSearchPathForDirectoriesInDomains(.documentDirectory, .allDomainsMask, true).first
 
 class TableViewOnline: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -111,6 +112,14 @@ class TableViewOnline: UIViewController, UITableViewDelegate, UITableViewDataSou
         return [edit]
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let audioPlay = AudioPlayer.sharedInstance
+        audioPlay.pathString = listSongs[indexPath.row].sourceOnline
+        audioPlay.titleSong = "\(listSongs[indexPath.row].title) Ca Sy: \(listSongs[indexPath.row].artistName)"
+        audioPlay.setupAudio()
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "setupObserveAudio"), object: nil)
+    }
+    
     func downloadSong(_ index: Int) {
         let dataSong = try? Data(contentsOf: URL(string: listSongs[index].sourceOnline)!)
         if let dir = kDOCUMENT_DIRECTORY_PATH {
@@ -124,11 +133,36 @@ class TableViewOnline: UIViewController, UITableViewDelegate, UITableViewDataSou
                 print(error.localizedDescription)
             }
             
-            // Create Song
+            // Create Song => ghi ra plist
+            writeDataToPath(dataSong as! NSObject, path: "\(pathToWriteSong)/\(listSongs[index].title).mp3")
             
             // Write Song's Information
-            
+            writeInfoSong(listSongs[index], path: pathToWriteSong)
         }
+    }
+    
+    func writeDataToPath(_ data: NSObject, path: String)
+    {
+        if let dataToWrite = data as? Data {
+            try? dataToWrite.write(to: URL(fileURLWithPath: path), options: [.atomic])
+        } else if let dataInfo = data as? NSDictionary {
+            // Dictionary VS NSDictionary
+            dataInfo.write(toFile: path, atomically: true)
+        }
+    }
+    
+    func writeInfoSong(_ song: Song, path: String) {
+        let dictData = NSMutableDictionary() // can change
+        dictData.setValue(song.title, forKey: "title")
+        dictData.setValue(song.artistName, forKey: "artistName")
+        dictData.setValue("/\(song.title)/thumbnail.png", forKey: "localThumbnail")
+        dictData.setValue(song.sourceOnline, forKey: "sourceOnline")
+        dictData.setValue("\(path)/\(song.title).mp3", forKey: "sourceLocal")
+        // write info
+        writeDataToPath(dictData, path: "\(path)/info.plist")
+        // write thumbnail
+        let dataThumbnail = NSData(data: UIImagePNGRepresentation(song.thumbnail)!)
+        writeDataToPath(dataThumbnail, path: "\(path)/thumbnail.png")
     }
     
 }

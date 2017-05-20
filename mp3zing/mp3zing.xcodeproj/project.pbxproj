@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B30DCF41ECE9E8800FBCDD5 /* AudioPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B30DCF31ECE9E8800FBCDD5 /* AudioPlayerView.swift */; };
+		5B59C4A01ECD560D004FA61E /* TableViewLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B59C49F1ECD560D004FA61E /* TableViewLocal.swift */; };
+		5B59C4A21ECD5E87004FA61E /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B59C4A11ECD5E87004FA61E /* AudioPlayer.swift */; };
 		5BD4994C1EC9ADC3004D3342 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD4994B1EC9ADC3004D3342 /* AppDelegate.swift */; };
 		5BD499511EC9ADC3004D3342 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BD4994F1EC9ADC3004D3342 /* Main.storyboard */; };
 		5BD499531EC9ADC3004D3342 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BD499521EC9ADC3004D3342 /* Assets.xcassets */; };
@@ -30,6 +33,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5B30DCF31ECE9E8800FBCDD5 /* AudioPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayerView.swift; sourceTree = "<group>"; };
+		5B59C49F1ECD560D004FA61E /* TableViewLocal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewLocal.swift; sourceTree = "<group>"; };
+		5B59C4A11ECD5E87004FA61E /* AudioPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		5BD499481EC9ADC3004D3342 /* mp3zing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mp3zing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BD4994B1EC9ADC3004D3342 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5BD499501EC9ADC3004D3342 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -94,11 +100,14 @@
 				5BD4995D1EC9B18A004D3342 /* resource */,
 				5BD4994B1EC9ADC3004D3342 /* AppDelegate.swift */,
 				5BF36CDF1ECC4187005B5928 /* TableViewOnline.swift */,
+				5B59C49F1ECD560D004FA61E /* TableViewLocal.swift */,
+				5B59C4A11ECD5E87004FA61E /* AudioPlayer.swift */,
+				5B30DCF31ECE9E8800FBCDD5 /* AudioPlayerView.swift */,
+				5BF36CEF1ECC5BB3005B5928 /* Song.swift */,
 				5BD4994F1EC9ADC3004D3342 /* Main.storyboard */,
 				5BD499521EC9ADC3004D3342 /* Assets.xcassets */,
 				5BD499541EC9ADC3004D3342 /* LaunchScreen.storyboard */,
 				5BD499571EC9ADC3004D3342 /* Info.plist */,
-				5BF36CEF1ECC5BB3005B5928 /* Song.swift */,
 			);
 			path = mp3zing;
 			sourceTree = "<group>";
@@ -229,7 +238,10 @@
 				5BF36CF01ECC5BB3005B5928 /* Song.swift in Sources */,
 				5BF36CE01ECC4187005B5928 /* TableViewOnline.swift in Sources */,
 				5BD4994C1EC9ADC3004D3342 /* AppDelegate.swift in Sources */,
+				5B59C4A21ECD5E87004FA61E /* AudioPlayer.swift in Sources */,
 				5BF36CE91ECC444D005B5928 /* TFHpple.m in Sources */,
+				5B30DCF41ECE9E8800FBCDD5 /* AudioPlayerView.swift in Sources */,
+				5B59C4A01ECD560D004FA61E /* TableViewLocal.swift in Sources */,
 				5BF36CEB1ECC444D005B5928 /* XPathQuery.m in Sources */,
 				5BF36CEA1ECC444D005B5928 /* TFHppleElement.m in Sources */,
 			);

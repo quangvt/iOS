@@ -32,7 +32,7 @@ struct Song {
         self.localThumbnail = localThumbnail
         let dataImage = try? Data(contentsOf: URL(fileURLWithPath: self.localThumbnail))
         self.thumbnail = UIImage(data: dataImage!)!
-        self.sourceOnline = localSource
+        self.sourceLocal = localSource
     }
     
 }
